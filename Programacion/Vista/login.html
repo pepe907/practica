@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="slider">
+            <button id="btnUsuario" class="active">Usuario</button>
+            <button id="btnAdmin">Admin</button>
+        </div>
+
+        <form id="formUsuario" class="active" action="./php/login_registro.php" method="POST">
+            <input type="text" name="nombre_usuario" placeholder="Nombre de Usuario" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <input type="hidden" name="tipo" value="Usuario">
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        
+        <form id="formAdmin" action="./php/login_registro.php" method="POST">
+            <input type="text" name="nombre_usuario" placeholder="Nombre de Admin" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <input type="hidden" name="tipo" value="Admin">
+            <button type="submit">Iniciar Sesión</button>
+        </form>        
+
+        <a href="register.html">¿No tienes cuenta? Regístrate aquí</a>
+    </div>
+
+    <script>
+        const btnUsuario = document.getElementById('btnUsuario');
+        const btnAdmin = document.getElementById('btnAdmin');
+        const formUsuario = document.getElementById('formUsuario');
+        const formAdmin = document.getElementById('formAdmin');
+
+        btnUsuario.addEventListener('click', () => {
+            btnUsuario.classList.add('active');
+            btnAdmin.classList.remove('active');
+            formUsuario.classList.add('active');
+            formAdmin.classList.remove('active');
+        });
+
+        btnAdmin.addEventListener('click', () => {
+            btnAdmin.classList.add('active');
+            btnUsuario.classList.remove('active');
+            formAdmin.classList.add('active');
+            formUsuario.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
